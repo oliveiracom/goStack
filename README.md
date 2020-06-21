@@ -7,10 +7,11 @@ Para tirar o melhor do bootcamp, organizei a agenda para bloquear o tempo do cur
 
 ## FEITO!
 ...É, devagar e sempre gafanhoto...
-Concluímos os ambientes e instalações, agora é hora de apertar o botão da propulsão!
+### 1 - Conceitos em Node.js - Primeiro backend do projeto
 
 ## Em Ação
 * Primeiro projeto completo com Node + React + ReactNative
+* Conceitos em ReactJs
 
 ## Em breve
 * Projetos em Node.js
