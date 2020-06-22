@@ -8,7 +8,7 @@ Para tirar o melhor do bootcamp, organizei a agenda para bloquear o tempo do cur
 ## FEITO!
 ...É, devagar e sempre gafanhoto...
 ### 1 - Conceitos em Node.js - Primeiro backend do projeto
-### 2 - Conceitos em ReactJs - Aplicação pra consumir api criada anteriormente
+
 
 ## Em Ação
 * Primeiro projeto completo com Node + React + ReactNative
