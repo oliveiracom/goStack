@@ -9,35 +9,18 @@ app.use(cors());
 app.use(express.json());
 
 const repositories = [];
-const countLikes = [];
 
 app.get("/repositories", (request, response) => {
-  const show = [];
-
-  repositories.forEach(function(repo, index) {
-    const likes = countLikes[index].likes
-    show.push({
-      repo,
-      likes
-    })
-  });
-  return  response.json(show);
+  return  response.json(repositories);
 });
 
 app.post("/repositories", (request, response) => {
   const {title, url, techs} = request.body;
-  const newRepo = {id : uuid(), title, url, techs }
-  const newLike = {id : newRepo.id, likes: 0};
+  const newRepo = { id : uuid(), title, url, techs, likes: 0 }
 
   repositories.push(newRepo);
-  countLikes.push (newLike)
 
-  const result = {
-    newRepo,
-    likes : 0
-  }
-
-  return response.json(result);
+  return response.json(newRepo);
 });
 
 app.get("/repositories/:id", (request, response) => {
@@ -58,14 +41,17 @@ app.put("/repositories/:id", (request, response) => {
   const unique = repositories.findIndex( repo => repo.id === id);
 
   if (unique < 0) {
-    return response.json({ error: "Repositorio não encontrado"});
+    return response.status(400).json({ error: "Repositorio não encontrado"});
   }
+
+  const {likes} = repositories[unique];
 
   const editRepo = {
     id,
     title,
     url,
-    techs
+    techs,
+    likes : likes
   }
 
   repositories[unique] = editRepo;
@@ -79,11 +65,10 @@ app.delete("/repositories/:id", (request, response) => {
   const unique = repositories.findIndex( repo => repo.id === id);
 
   if (unique < 0) {
-    return response.json({ error: "Repositorio não encontrado"});
+    return response.status(400).json({ error: "Repositorio não encontrado"});
   }
 
   repositories.splice(unique, 1);
-  countLikes.splice(unique, 1);
 
   return response.status(204).send();
 });
@@ -91,18 +76,27 @@ app.delete("/repositories/:id", (request, response) => {
 app.post("/repositories/:id/like", (request, response) => {
   const { id } = request.params;
 
-  const unique = countLikes.findIndex( like => like.id === id);
+  const unique = repositories.findIndex( repo => repo.id === id);
 
   if (unique < 0) {
-    return response.json({ error: "Erro ao atualizar contagem"});
+    return response.status(400).json({ error: "Erro ao atualizar contagem"});
   }
 
-  countLikes[unique] = {
-    id,
-    likes: (countLikes[unique].likes + 1)
-  };
+  const { title, url, techs, likes } = repositories[unique];
 
-  return response.send();
+  const newLike = likes + 1;
+
+  const attRepo = {
+    id,
+    title,
+    url,
+    techs,
+    likes: newLike
+  }
+
+  repositories[unique] = attRepo;
+
+  return response.json({likes: newLike});
 });
 
 module.exports = app;
