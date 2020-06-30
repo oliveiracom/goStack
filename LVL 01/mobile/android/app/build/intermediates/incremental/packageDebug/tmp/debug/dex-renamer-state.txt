@@ -1,4 +1,0 @@
-#Wed Jun 24 19:48:42 BRT 2020
-base.0=C\:\\Users\\Carol\\Documents\\Treinos\\GoStack\\LVL 01\\mobile\\android\\app\\build\\intermediates\\dex\\debug\\out\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
