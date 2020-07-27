@@ -11,15 +11,16 @@ Para tirar o melhor do bootcamp, organizei a agenda para bloquear o tempo do cur
 ### 2 - Conceitos em ReactJs - Aplicação Web para consumir API criada
 ### 3 - Conceitos em ReactNative - Aplicação mobile para consumir API criada
 ### 4 - Fundamentos do TypeScript
+### 5 - Banco de dados com Docker, Node e TypeORM
 
 
 ## Em Ação
-* Projeto Treino Completo Node + React
+* GoBarber Projeto Treino Completo Node + React
 
 ## Em breve
-* Projetos em Node.js
-* Projetos Web com React.js
-* Projetos mobile com React Native
-
+* Testes com JEST
+* Arquitetura
+* Deploy de Aplicações
+* Publicação com React Native
 
 Por [Caroline Araújo](https://oliveiracomunicacao.com.br/caroline-araujo)
